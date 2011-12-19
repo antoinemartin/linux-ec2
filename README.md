@@ -9,4 +9,23 @@ and [here](http://worldmodscode.wordpress.com/2011/10/28/ec2-ami-creation-withou
 
 Basically, the only change is the config file.
 
+The changes in the config file are the following:
+
+* Enable PAE and high memory support up to 64 GB
+* Enable paravirtualized client and Xen paravirtualized client
+* Enable XEN front-end block device and network device
+* Enable XEN virtual console
+* Enable NFS client support as built-in in the kernel to allow setting the ip address at boot
+
+When built, the kernel can be started in a PV-GRUB instance with the following `/boot/grub/menu.lst`:
+
+    default 0
+    timeout 1
+     
+    title Arch Linux
+      root (hd0,0)
+      kernel /boot/vmlinuz-linux-ec2 root=/dev/xvda1 ip=dhcp console=hvc0 spinlock=tickless ro
+      initrd /boot/initramfs-linux-ec2.img
+
+
 Currently, support is only present for i686 instances.
