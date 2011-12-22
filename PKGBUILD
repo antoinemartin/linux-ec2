@@ -49,8 +49,10 @@ build() {
 
   if [ "${CARCH}" = "x86_64" ]; then
     cat "${srcdir}/config.x86_64" > ./.config
+    export ARCH=x86_64
   else
     cat "${srcdir}/config" > ./.config
+    export ARCH=i386
   fi
 
   if [ "${_kernelname}" != "" ]; then

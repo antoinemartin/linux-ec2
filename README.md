@@ -29,3 +29,12 @@ When built, the kernel can be started in a PV-GRUB instance with the following `
 
 
 Currently, support is only present for i686 instances.
+
+
+* "Processor type and features" -> "High Memory Support" -> Make sure it is set to 64GB
+* "Processor type and features" -> "PAE (Physical Address Extension) Support" -> enable
+* "Processor type and features" -> "Paravirtualized guest support" -> enable
+* "Processor type and features" -> "Paravirtualized guest support" -> "Xen guest support" -> enable
+* "Device Drivers" -> "Block devices" -> "Xen virtual block device support" -> enable either as a module or built in
+* "Device Drivers" -> "Network device support" -> "Xen network device frontend driver" -> enable either as a module or built in
+* "Networking support" -> "Networking options" -> "IP: Kernel level autoconfiguration" -> enable and all sub options
