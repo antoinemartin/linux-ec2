@@ -1,5 +1,5 @@
 pkg
 src
 *.pkg.tar.xz
-*.gz
+*.xz
 *.tar.bz2
